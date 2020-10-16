@@ -10,3 +10,12 @@ Please check [online demo](https://polkablocks-fe-hackathon.caiyiliang.vercel.ap
 - Show basic block information of Polkadot network
 - Include a component to search for a block by block hash.
 - Deploy the app and make it onlive
+
+##### Play locally
+
+- `yarn install `
+- `yarn start`
+
+##### Screenshot
+
+![ScreenShot!](/src/assets/screencapture-polkablocks-fe-hackathon-caiyiliang-vercel-app.png)
