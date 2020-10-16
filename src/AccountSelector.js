@@ -8,22 +8,22 @@ import {
   Container,
   Icon,
   Image,
-  Label
+  Label,
 } from 'semantic-ui-react';
 
 import { useSubstrate } from './substrate-lib';
 
-function Main (props) {
+function Main(props) {
   const { keyring } = useSubstrate();
   const { setAccountAddress } = props;
   const [accountSelected, setAccountSelected] = useState('');
 
   // Get the list of accounts we possess the private key for
-  const keyringOptions = keyring.getPairs().map(account => ({
+  const keyringOptions = keyring.getPairs().map((account) => ({
     key: account.address,
     value: account.address,
     text: account.meta.name.toUpperCase(),
-    icon: 'user'
+    icon: 'user',
   }));
 
   const initialAddress =
@@ -35,7 +35,7 @@ function Main (props) {
     setAccountSelected(initialAddress);
   }, [setAccountAddress, initialAddress]);
 
-  const onChange = address => {
+  const onChange = (address) => {
     // Update state with new account address
     setAccountAddress(address);
     setAccountSelected(address);
@@ -49,15 +49,18 @@ function Main (props) {
         backgroundColor: '#fff',
         borderColor: '#fff',
         paddingTop: '1em',
-        paddingBottom: '1em'
+        paddingBottom: '1em',
       }}
     >
       <Container>
         <Menu.Menu>
-          <Image src={`${process.env.PUBLIC_URL}/assets/substrate-logo.png`} size='mini' />
+          <Image
+            src={`${process.env.PUBLIC_URL}/assets/substrate-logo.png`}
+            size='mini'
+          />
         </Menu.Menu>
         <Menu.Menu position='right' style={{ alignItems: 'center' }}>
-          { !accountSelected
+          {/* { !accountSelected
             ? <span>
               Add your account with the{' '}
               <a
@@ -68,7 +71,7 @@ function Main (props) {
                 Polkadot JS Extension
               </a>
             </span>
-            : null }
+            : null } */}
           <CopyToClipboard text={accountSelected}>
             <Button
               basic
@@ -96,7 +99,7 @@ function Main (props) {
   );
 }
 
-function BalanceAnnotation (props) {
+function BalanceAnnotation(props) {
   const { accountSelected } = props;
   const { api } = useSubstrate();
   const [accountBalance, setAccountBalance] = useState(0);
@@ -107,10 +110,11 @@ function BalanceAnnotation (props) {
 
     // If the user has selected an address, create a new subscription
     accountSelected &&
-      api.query.system.account(accountSelected, balance => {
-        setAccountBalance(balance.data.free.toHuman());
-      })
-        .then(unsub => {
+      api.query.system
+        .account(accountSelected, (balance) => {
+          setAccountBalance(balance.data.free.toHuman());
+        })
+        .then((unsub) => {
           unsubscribe = unsub;
         })
         .catch(console.error);
@@ -126,7 +130,7 @@ function BalanceAnnotation (props) {
   ) : null;
 }
 
-export default function AccountSelector (props) {
+export default function AccountSelector(props) {
   const { api, keyring } = useSubstrate();
   return keyring.getPairs && api.query ? <Main {...props} /> : null;
 }
