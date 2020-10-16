@@ -6,6 +6,7 @@ import {
   Grid,
   Sticky,
   Message,
+  Label,
 } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 
@@ -15,6 +16,8 @@ import { DeveloperConsole } from './substrate-lib/components';
 import AccountSelector from './AccountSelector';
 import Balances from './Balances';
 import BlockNumber from './BlockNumber';
+import BlockInfo from './BlockInfo';
+import BlockInfoBySeach from './BlockInfoBySeach';
 import Events from './Events';
 import Interactor from './Interactor';
 import Metadata from './Metadata';
@@ -68,6 +71,17 @@ function Main() {
         <AccountSelector setAccountAddress={setAccountAddress} />
       </Sticky>
       <Container>
+        {/* <Grid.Row stretched style={{ margin: '1rem 0' }}>
+          <Label
+            as='a'
+            href='https://github.com/CaiYiLiang/Polkablocks-FE-Hackathon'
+            color='pink'
+            target='_blank'
+          >
+            PolkaBlocks - Hello World Hackthon
+            <Label.Detail>By Cherry</Label.Detail>
+          </Label>
+        </Grid.Row> */}
         <Grid stackable columns='equal'>
           <Grid.Row stretched>
             <NodeInfo />
@@ -75,20 +89,12 @@ function Main() {
             <BlockNumber />
             <BlockNumber finalized />
           </Grid.Row>
-          {/* <Grid.Row stretched>
-            <Balances />
-          </Grid.Row> */}
-          {/* <Grid.Row>
-            <Transfer accountPair={accountPair} />
-            <Upgrade accountPair={accountPair} />
+          <Grid.Row stretched>
+            <BlockInfo />
           </Grid.Row>
-          <Grid.Row>
-            <Interactor accountPair={accountPair} />
-            <Events />
+          <Grid.Row stretched>
+            <BlockInfoBySeach />
           </Grid.Row>
-          <Grid.Row>
-            <TemplateModule accountPair={accountPair} />
-          </Grid.Row> */}
         </Grid>
       </Container>
       <DeveloperConsole />

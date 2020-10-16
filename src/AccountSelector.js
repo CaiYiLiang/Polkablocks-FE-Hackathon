@@ -60,8 +60,19 @@ function Main(props) {
           />
         </Menu.Menu>
         <Menu.Menu position='right' style={{ alignItems: 'center' }}>
-          {/* { !accountSelected
-            ? <span>
+          <Label
+            as='a'
+            href='https://github.com/CaiYiLiang/Polkablocks-FE-Hackathon'
+            color='pink'
+            target='_blank'
+          >
+            PolkaBlocks - Hello World Hackthon
+            <Label.Detail>By Cherry</Label.Detail>
+          </Label>
+        </Menu.Menu>
+        {/* <Menu.Menu position='right' style={{ alignItems: 'center' }}>
+          {!accountSelected ? (
+            <span>
               Add your account with the{' '}
               <a
                 target='_blank'
@@ -71,7 +82,7 @@ function Main(props) {
                 Polkadot JS Extension
               </a>
             </span>
-            : null } */}
+          ) : null}
           <CopyToClipboard text={accountSelected}>
             <Button
               basic
@@ -93,7 +104,7 @@ function Main(props) {
             value={accountSelected}
           />
           <BalanceAnnotation accountSelected={accountSelected} />
-        </Menu.Menu>
+        </Menu.Menu> */}
       </Container>
     </Menu>
   );
