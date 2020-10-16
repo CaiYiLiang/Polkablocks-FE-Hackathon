@@ -66,7 +66,7 @@ function Main(props) {
             color='pink'
             target='_blank'
           >
-            PolkaBlocks - Hello World Hackthon
+            PolkaBlocks - Hello World Hackathon
             <Label.Detail>By Cherry</Label.Detail>
           </Label>
         </Menu.Menu>

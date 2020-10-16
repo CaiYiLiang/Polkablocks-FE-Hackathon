@@ -71,17 +71,6 @@ function Main() {
         <AccountSelector setAccountAddress={setAccountAddress} />
       </Sticky>
       <Container>
-        {/* <Grid.Row stretched style={{ margin: '1rem 0' }}>
-          <Label
-            as='a'
-            href='https://github.com/CaiYiLiang/Polkablocks-FE-Hackathon'
-            color='pink'
-            target='_blank'
-          >
-            PolkaBlocks - Hello World Hackthon
-            <Label.Detail>By Cherry</Label.Detail>
-          </Label>
-        </Grid.Row> */}
         <Grid stackable columns='equal'>
           <Grid.Row stretched>
             <NodeInfo />
